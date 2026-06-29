@@ -24,6 +24,8 @@ const meta: Meta = {
         },
         roundness: {
             control: "select",
+            type: "string",
+            description: "De vorm van de knop",
             options: [
                 "m3-btn-round",
                 "m3-btn-square"
@@ -31,6 +33,9 @@ const meta: Meta = {
         },
         variant: {
             control: "select",
+            type: "string",
+            description: "Variant van de knop",
+
             options: [
                 "filled",
                 "outlined",
@@ -49,6 +54,37 @@ export const Filled: Story = {
         children: "Filled Button",
         size: "m3-btn-size-medium",
         icon: "",
-        roundness: "m3-btn-square"
+        roundness: "m3-btn-square",
+        variant: "filled"
     },
+};
+
+export const Outlined: Story = {
+    args: {
+        children: "Filled Button",
+        size: "m3-btn-size-medium",
+        icon: "",
+        roundness: "m3-btn-square",
+        variant: "outlined"
+    }
+};
+
+export const Tonal: Story = {
+    args: {
+        children: "Filled Button",
+        size: "m3-btn-size-medium",
+        icon: "",
+        roundness: "m3-btn-square",
+        variant: "tonal"
+    }
+};
+
+export const RondFilled: Story = {
+    args: {
+        children: "Filled Button",
+        size: "m3-btn-size-medium",
+        icon: "",
+        roundness: "m3-btn-round",
+        variant: "filled"
+    }
 };
