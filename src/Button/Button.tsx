@@ -18,7 +18,7 @@ export const Button = ({
 }: ButtonProps) => {
   return (
     <button className={`${size} ${roundness} m3-btn-${variant} m3-btn-global`} disabled={true} {...props} >
-      <span className="icon">{icon}</span>
+      <span className="icon material-icons">{icon}</span>
       <span>{children}</span>
     </button>
   );

@@ -32,9 +32,9 @@
   transition: box-shadow 200ms ease;
 }
 
-.m3-btn-global:active {
+/* .m3-btn-global:active {
   border-radius: calc(16 * var(--dp));
-}
+} */
 
 .m3-btn-global::before {
   content: "";
