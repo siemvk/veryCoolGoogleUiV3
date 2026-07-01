@@ -1,0 +1,11 @@
+import { InputType } from "storybook/internal/csf"
+
+export type size = "small" | "medium" | "large" | "extra"
+
+export const sb_size_preset: InputType = {
+    control: "select",
+    options: [
+        "small", "medium", "large", "extra", undefined
+    ],
+    description: "The size defaults to medium. optional",
+}

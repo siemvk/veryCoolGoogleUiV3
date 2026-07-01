@@ -1,8 +1,5 @@
-# verycoolgoogleuiv3
-uhhh somthing somthing material ui v3 react
+# Beer css react
 
-known issues:
-- Button icons dont work correctly
-- outlined button does not match spec
-- no animations ):
-- no shadows ):
+A small wrapper around [Beer CSS](https://github.com/beercss/beercss/tree/main) for react.
+
+Initialy I wanted to make my own material design framework, but I am lazy and bad at design, so I decided to use Beer CSS instead.

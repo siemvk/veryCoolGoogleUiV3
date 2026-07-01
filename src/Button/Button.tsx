@@ -1,25 +1,60 @@
 import React, { ButtonHTMLAttributes } from "react";
-import "./Button.css";
+import { size } from "../types";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: string,
-  size: "m3-btn-size-medium",
-  roundness: "m3-btn-round" | "m3-btn-square",
-  variant: "filled" | "outlined" | "tonal"
+  size?: size,
+  FAB?: boolean,
+  forms?: "border" | "circle" | "square" | "round" | "no-round" | "left-round" | "right-round" | "top-round" | "bottom-round" | "responsive" | "extend",
+  responsive: boolean
 }
 
 export const Button = ({
   children,
   icon,
   size,
-  roundness,
-  variant,
+  FAB,
+  forms,
+  responsive,
   ...props
 }: ButtonProps) => {
-  return (
-    <button className={`${size} ${roundness} m3-btn-${variant} m3-btn-global`} disabled={true} {...props} >
-      <span className="icon material-icons">{icon}</span>
-      <span>{children}</span>
-    </button>
-  );
+  let extraArgs = ""
+  if (responsive) {
+    extraArgs = extraArgs + " responsive "
+  }
+  if (FAB) {
+    return (
+      <button className={`${size} extra ${forms} ${extraArgs}`}>
+        <i>
+          {icon}
+        </i>
+      </button >
+    )
+  } else {
+    return (
+      <div>
+        <button className={`${size} ${forms} ${extraArgs}`}>
+          {icon ?
+            <>
+              <i>
+                {icon}
+              </i>
+              {children ?
+                <span>
+                  {children}
+                </span>
+                : ""
+              }
+            </> : <>
+              {children ? children : ""}
+            </>}
+        </button >
+        <menu>
+          <li>Item 1</li>
+          <li>Item 2</li>
+          <li>Item 3</li>
+        </menu>
+      </div>
+    );
+  }
 };

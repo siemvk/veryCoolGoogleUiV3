@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "./Button";
+import { sb_size_preset } from "../types";
 
 const meta: Meta = {
     title: "M3/Button",
@@ -13,36 +14,22 @@ const meta: Meta = {
         },
         children: {
             control: 'text',
-            description: "The text of the button (optional)"
+            description: "The text of the button or the children"
         },
-        size: {
-            control: "select",
-            options: [
-                "m3-btn-size-medium"
-            ],
-            description: "Groten van knop"
+        size: sb_size_preset,
+        FAB: {
+            control: "boolean",
+            description: "Moet dit een FAB zijn"
         },
-        roundness: {
-            control: "select",
-            type: "string",
-            description: "De vorm van de knop",
-            options: [
-                "m3-btn-round",
-                "m3-btn-square"
-            ]
+        responsive: {
+            control: "boolean",
+            description: "Moet dit responsive zijn"
         },
-        variant: {
+        forms: {
             control: "select",
-            type: "string",
-            description: "Variant van de knop",
-
-            options: [
-                "filled",
-                "outlined",
-                "tonal"
-            ]
+            description: "de form van de knop",
+            options: ["border", "circle", "square", "round", "no-round", "left-round", "right-round", "top-round", "bottom-round", "responsive", "extend"]
         }
-
     },
 };
 
@@ -51,40 +38,7 @@ type Story = StoryObj;
 
 export const Filled: Story = {
     args: {
-        children: "Filled Button",
-        size: "m3-btn-size-medium",
-        icon: "",
-        roundness: "m3-btn-square",
-        variant: "filled"
+        children: "Base button",
+        size: "",
     },
-};
-
-export const Outlined: Story = {
-    args: {
-        children: "Filled Button",
-        size: "m3-btn-size-medium",
-        icon: "",
-        roundness: "m3-btn-square",
-        variant: "outlined"
-    }
-};
-
-export const Tonal: Story = {
-    args: {
-        children: "Filled Button",
-        size: "m3-btn-size-medium",
-        icon: "",
-        roundness: "m3-btn-square",
-        variant: "tonal"
-    }
-};
-
-export const RondFilled: Story = {
-    args: {
-        children: "Filled Button",
-        size: "m3-btn-size-medium",
-        icon: "",
-        roundness: "m3-btn-round",
-        variant: "filled"
-    }
 };

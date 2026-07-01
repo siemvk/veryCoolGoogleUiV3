@@ -40,6 +40,8 @@
     "@vitest/coverage-v8": "^4.1.9"
   },
   "dependencies": {
-    "chromatic": "^17.8.0"
+    "beercss": "^4.0.22",
+    "chromatic": "^17.8.0",
+    "material-dynamic-colors": "^1.1.4"
   }
 }

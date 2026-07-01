@@ -1,6 +1,7 @@
 import type { Preview } from "@storybook/react";
-import "../src/theme.css"; // Injects your M3 design tokens
-
+import "beercss";
+import "material-dynamic-colors";
+import "../src/theme.css"
 const preview: Preview = {
   parameters: {
     controls: {
