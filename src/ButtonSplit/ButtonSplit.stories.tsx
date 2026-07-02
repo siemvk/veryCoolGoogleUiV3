@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button } from "./Button";
+import { SplitButton } from "./ButtonSplit";
 import { sb_size_preset } from "../types";
 
 const meta: Meta = {
-    title: "M3/Button",
-    component: Button,
+    title: "M3/SplitButton",
+    component: SplitButton,
     // Auto-generates a documentation page with your TS props
     tags: ["autodocs"],
     argTypes: {
@@ -17,19 +17,10 @@ const meta: Meta = {
             description: "The text of the button or the children"
         },
         size: sb_size_preset,
-        FAB: {
-            control: "boolean",
-            description: "Moet dit een FAB zijn"
-        },
         responsive: {
             control: "boolean",
             description: "Moet dit responsive zijn"
         },
-        forms: {
-            control: "multi-select",
-            description: "de form van de knop",
-            options: ["border", "circle", "square", "round", "no-round", "left-round", "right-round", "top-round", "bottom-round", "responsive", "extend"]
-        }
     },
 };
 
