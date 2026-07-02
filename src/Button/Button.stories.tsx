@@ -42,3 +42,13 @@ export const Filled: Story = {
         size: "",
     },
 };
+
+export const FAB: Story = {
+    args: {
+        children: "Base button",
+        size: "",
+        forms: ["square"],
+        FAB: true,
+        icon: "home"
+    }
+};
