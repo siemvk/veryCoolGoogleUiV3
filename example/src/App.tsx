@@ -54,6 +54,23 @@ export default function App() {
                                     type: "error"
                                 })
                             }
+                        },
+                        {
+                            content: "Toast with button",
+                            onClick: () => {
+                                addToast({
+                                    text: "hi",
+                                    action: {
+                                        label: "Button",
+                                        onClick: () => {
+                                            pushDialog({
+                                                title: "Het werkt :D",
+                                                content: "content hier",
+                                            })
+                                        }
+                                    }
+                                })
+                            }
                         }
                     ],
                     docked: false,

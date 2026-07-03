@@ -27,15 +27,12 @@ export const DialogProvider = ({ children }: { children: ReactNode }) => {
 
     const pushDialog = (dialog: DialogData) => {
         setDialog(dialog);
-        (document.querySelector('#HiddenButtonForPressing') as HTMLButtonElement | null)?.click();
+        ui("#dialog")
     };
 
     return (
         <DialogContext.Provider value={{ pushDialog: pushDialog }}>
             {children}
-            <div hidden={true}>
-                <Button id="HiddenButtonForPressing" data-ui="#dialog" hidden={true}></Button>
-            </div>
             <dialog id="dialog" className={`${dialog.pos} `} data-ui="#dialog">
                 <h5>{dialog.title}</h5>
                 <p>{dialog.content}</p>
