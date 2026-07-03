@@ -3,7 +3,7 @@ import { size } from "../types";
 import { Button } from "../Button/Button";
 import menuHelper from "../helpers/menu";
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface SplitButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: string,
   size?: size,
   responsive?: boolean,
@@ -17,7 +17,7 @@ export const SplitButton = ({
   responsive,
   menu,
   ...props
-}: ButtonProps) => {
+}: SplitButtonProps) => {
   let extraArgs = ""
   if (responsive) {
     extraArgs = extraArgs + " responsive "
