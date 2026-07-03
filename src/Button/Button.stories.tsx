@@ -29,6 +29,10 @@ const meta: Meta = {
             control: "multi-select",
             description: "de form van de knop",
             options: ["border", "circle", "square", "round", "no-round", "left-round", "right-round", "top-round", "bottom-round", "responsive", "extend"]
+        },
+        extendedFAB: {
+            control: "boolean",
+            description: "Is it a extending FAB"
         }
     },
 };

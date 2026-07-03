@@ -7,7 +7,8 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: size,
   FAB?: boolean,
   forms?: ("border" | "circle" | "square" | "round" | "no-round" | "left-round" | "right-round" | "top-round" | "bottom-round" | "responsive" | "extend" | "transparent" | "link")[],
-  responsive?: boolean
+  responsive?: boolean,
+  extendedFAB?: boolean,
 }
 
 export const Button = ({
@@ -17,6 +18,7 @@ export const Button = ({
   FAB,
   forms,
   responsive,
+  extendedFAB,
   ...props
 }: ButtonProps) => {
   let extraArgs = ""
@@ -25,12 +27,18 @@ export const Button = ({
   if (responsive) {
     extraArgs = extraArgs + " responsive "
   }
+  if (extendedFAB) {
+    extraArgs = extraArgs + " extend "
+  }
   if (FAB) {
     return (
       <button className={`${size} extra ${formsString} ${extraArgs}`} {...props}>
         <i>
           {icon}
         </i>
+        {extendedFAB && <span>
+          {children}
+        </span>}
       </button >
     )
   } else {
