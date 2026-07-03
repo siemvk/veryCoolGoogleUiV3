@@ -1,4 +1,4 @@
-import { Button, SplitButton } from "../../src";
+import { Button, SplitButton, useDialog } from "../../src";
 import { useToast } from "../../src";
 import menuHelper, { divider } from "../../src/helpers/menu";
 
@@ -19,6 +19,7 @@ const highlights = [
 
 export default function App() {
     const { addToast } = useToast();
+    const { pushDialog } = useDialog();
     return (
         <main>
             <section className="hero">
@@ -29,7 +30,12 @@ export default function App() {
                 </p>
 
                 <div className="button-row">
-                    <Button icon="bolt" forms={["round"]}>
+                    <Button icon="bolt" forms={["round"]} onClick={() => {
+                        pushDialog({
+                            title: "Lmao ik heb de website nog niet gemaakt",
+                            content: "mischien moet ik dat doen",
+                        })
+                    }}>
                         Primary action
                     </Button>
                     <div>
