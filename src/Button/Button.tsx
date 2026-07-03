@@ -1,6 +1,7 @@
 import React, { ButtonHTMLAttributes } from "react";
 import { size } from "../types";
 import TextAndIcon from "../helpers/textAndIcon";
+import Tooltip, { TooltipProps } from "../helpers/tooltip";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: string,
@@ -9,6 +10,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   forms?: ("border" | "circle" | "square" | "round" | "no-round" | "left-round" | "right-round" | "top-round" | "bottom-round" | "responsive" | "extend" | "transparent" | "link")[],
   responsive?: boolean,
   extendedFAB?: boolean,
+  buttonTooltip?: React.ReactElement<TooltipProps, typeof Tooltip>;
 }
 
 export const Button = ({
@@ -19,6 +21,7 @@ export const Button = ({
   forms,
   responsive,
   extendedFAB,
+  buttonTooltip: buttonTooltip,
   ...props
 }: ButtonProps) => {
   let extraArgs = ""
@@ -39,12 +42,15 @@ export const Button = ({
         {extendedFAB && <span>
           {children}
         </span>}
+        {buttonTooltip}
       </button >
     )
   } else {
     return (
       <button className={`${size} ${formsString} ${extraArgs}`} {...props}>
-        <TextAndIcon icon={icon}>{children}</TextAndIcon>
+        <TextAndIcon icon={icon}>{children}
+          {buttonTooltip}
+        </TextAndIcon>
       </button >
     );
   }

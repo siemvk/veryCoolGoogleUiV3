@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "./Button";
 import { sb_size_preset } from "../types";
+import Tooltip from "../helpers/tooltip";
 
 const meta: Meta = {
     title: "M3/Button",
@@ -33,6 +34,14 @@ const meta: Meta = {
         extendedFAB: {
             control: "boolean",
             description: "Is it a extending FAB"
+        },
+        buttonTooltip: {
+            description: "Tooltip element",
+            table: {
+                type: {
+                    summary: "React.ReactElement<TooltipProps, typeof Tooltip>[]",
+                },
+            },
         }
     },
 };
@@ -44,6 +53,7 @@ export const Filled: Story = {
     args: {
         children: "Base button",
         size: "",
+        buttonTooltip: <Tooltip pos="bottom">Druk op de knop om er op te drukken</Tooltip>
     },
 };
 

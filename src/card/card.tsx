@@ -1,11 +1,11 @@
 import React, { ButtonHTMLAttributes, ReactNode, useState } from "react";
 import { size } from "../types";
-import { Button } from "../Button/Button";
+import { Button, ButtonProps } from "../Button/Button";
 import { SplitButton } from "../ButtonSplit/ButtonSplit";
 
 export interface CardProps extends ButtonHTMLAttributes<HTMLDivElement> {
     title: string,
-    buttons?: ReactNode[]
+    buttons?: React.ReactElement<ButtonProps, typeof Button>[]
 }
 
 export const Card = ({

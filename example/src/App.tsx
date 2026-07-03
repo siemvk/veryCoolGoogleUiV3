@@ -2,6 +2,7 @@ import { Button, SplitButton, useDialog } from "../../src";
 import { useToast } from "../../src";
 import { Card } from "../../src/card/card";
 import menuHelper, { divider } from "../../src/helpers/menu";
+import Tooltip from "../../src/helpers/tooltip";
 
 
 export default function App() {
@@ -71,12 +72,18 @@ export default function App() {
                                     }
                                 })
                             }
-                        }
+                        },
                     ],
                     docked: false,
                     noWrap: true
                 })}
             </div>
+        },
+        {
+            detail: <>Hover over de knop om hopelijk <br /> de tooltip te zien</>,
+            title: "Tooltip test",
+            button: <Button buttonTooltip={<Tooltip rich={false}>wow het werk</Tooltip>}>Hover</Button>
+
         },
         {
             title: "Dropdown test",

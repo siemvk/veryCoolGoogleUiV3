@@ -2,12 +2,14 @@ import React, { ButtonHTMLAttributes, useState } from "react";
 import { size } from "../types";
 import { Button } from "../Button/Button";
 import menuHelper from "../helpers/menu";
+import Tooltip, { TooltipProps } from "../helpers/tooltip";
 
 export interface SplitButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: string,
   size?: size,
   responsive?: boolean,
-  menu: React.JSX.Element
+  menu: React.ReactElement<React.HTMLAttributes<HTMLElement>, "menu">,
+  buttonTooltip?: React.ReactElement<TooltipProps, typeof Tooltip>;
 }
 
 export const SplitButton = ({
@@ -16,6 +18,7 @@ export const SplitButton = ({
   size,
   responsive,
   menu,
+  buttonTooltip,
   ...props
 }: SplitButtonProps) => {
   let extraArgs = ""
@@ -32,6 +35,7 @@ export const SplitButton = ({
           responsive={responsive}
           FAB={false}
           icon={icon}
+          buttonTooltip={buttonTooltip}
           {...props}
           onClick={(e) => {
             e.preventDefault();

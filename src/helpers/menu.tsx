@@ -2,7 +2,7 @@ import React, { ElementType } from "react";
 import TextAndIcon from "./textAndIcon";
 import { pos } from "../types";
 
-type menuHelperProps = {
+export type menuHelperProps = {
     menuData: menuItem[],
     docked?: boolean,
     fullscreen?: boolean,

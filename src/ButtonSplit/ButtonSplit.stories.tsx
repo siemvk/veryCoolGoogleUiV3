@@ -21,6 +21,22 @@ const meta: Meta = {
             control: "boolean",
             description: "Moet dit responsive zijn"
         },
+        menu: {
+            description: "Het dropdown menu",
+            table: {
+                type: {
+                    summary: "React.ReactElement<React.HTMLAttributes<HTMLElement>, \"menu\">",
+                },
+            },
+        },
+        buttonTooltip: {
+            description: "Tooltip element",
+            table: {
+                type: {
+                    summary: "React.ReactElement<TooltipProps, typeof Tooltip>[]",
+                },
+            },
+        }
     },
 };
 
