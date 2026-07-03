@@ -9,3 +9,13 @@ export const sb_size_preset: InputType = {
     ],
     description: "The size defaults to medium. optional",
 }
+
+export type pos = "left" | "right" | "top" | "bottom" | ""
+
+export const sb_pos: InputType = {
+    control: "select",
+    options: [
+        "left", "right", "top", "bottom"
+    ],
+    description: 'waar'
+}

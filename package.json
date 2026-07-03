@@ -19,6 +19,7 @@
   ],
   "scripts": {
     "build": "vite build",
+    "demo": "vite --config example/vite.config.ts",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },

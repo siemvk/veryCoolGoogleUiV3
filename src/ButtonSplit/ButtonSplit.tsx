@@ -1,11 +1,13 @@
 import React, { ButtonHTMLAttributes, useState } from "react";
 import { size } from "../types";
 import { Button } from "../Button/Button";
+import menuHelper from "../helpers/menu";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: string,
   size?: size,
-  responsive?: boolean
+  responsive?: boolean,
+  menu: React.JSX.Element
 }
 
 export const SplitButton = ({
@@ -13,6 +15,7 @@ export const SplitButton = ({
   icon,
   size,
   responsive,
+  menu,
   ...props
 }: ButtonProps) => {
   let extraArgs = ""
@@ -40,17 +43,7 @@ export const SplitButton = ({
         </Button>
         <div>
           <Button icon="keyboard_arrow_down" forms={["right-round", "square"]} onClick={() => { setOpen(true) }} />
-          <menu className="right no-wrap">
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Item 2</a>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
-          </menu>
+          {menu}
         </div>
       </nav >
     </div>

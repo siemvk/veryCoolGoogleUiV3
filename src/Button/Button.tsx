@@ -1,5 +1,6 @@
 import React, { ButtonHTMLAttributes } from "react";
 import { size } from "../types";
+import TextAndIcon from "../helpers/textAndIcon";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: string,
@@ -35,20 +36,7 @@ export const Button = ({
   } else {
     return (
       <button className={`${size} ${formsString} ${extraArgs}`} {...props}>
-        {icon ?
-          <>
-            <i>
-              {icon}
-            </i>
-            {children ?
-              <span>
-                {children}
-              </span>
-              : ""
-            }
-          </> : <>
-            {children ? children : ""}
-          </>}
+        <TextAndIcon icon={icon}>{children}</TextAndIcon>
       </button >
     );
   }
