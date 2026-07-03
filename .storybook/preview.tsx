@@ -11,27 +11,27 @@ const preview: Preview = {
       },
     },
   },
-  // Adds a toggle switch to the Storybook toolbar
-  globalTypes: {
-    theme: {
-      description: "Global theme for components",
-      defaultValue: "light",
-      toolbar: {
-        title: "Theme",
-        icon: "circlehollow",
-        items: ["light", "dark"],
-        dynamicTitle: true,
-      },
-    },
-  },
-  // Applies the theme to the HTML element wrapping your component
-  decorators: [
-    (Story, context) => {
-      const theme = context.globals.theme || "light";
-      document.documentElement.setAttribute("data-theme", theme);
-      return Story();
-    },
-  ],
+  // // Adds a toggle switch to the Storybook toolbar
+  // globalTypes: {
+  //   theme: {
+  //     description: "Global theme for components",
+  //     defaultValue: "light",
+  //     toolbar: {
+  //       title: "Theme",
+  //       icon: "circlehollow",
+  //       items: ["light", "dark"],
+  //       dynamicTitle: true,
+  //     },
+  //   },
+  // },
+  // // Applies the theme to the HTML element wrapping your component
+  // decorators: [
+  //   (Story, context) => {
+  //     const theme = context.globals.theme || "light";
+  //     document.documentElement.setAttribute("data-theme", theme);
+  //     return Story();
+  //   },
+  // ],
 };
 
 export default preview;
