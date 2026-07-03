@@ -1,4 +1,5 @@
 import { Button, SplitButton } from "../../src";
+import { useToast } from "../../src";
 import menuHelper, { divider } from "../../src/helpers/menu";
 
 const highlights = [
@@ -17,10 +18,10 @@ const highlights = [
 ];
 
 export default function App() {
+    const { addToast } = useToast();
     return (
-        <main className="shell">
+        <main>
             <section className="hero">
-                <p className="eyebrow">Component demo</p>
                 <h1>Preview your React components in a small local playground.</h1>
                 <p className="lede">
                     Start the app with <strong>bun run demo</strong> and use this page to
@@ -34,37 +35,44 @@ export default function App() {
                     <div>
 
                         <Button icon="visibility" forms={["border", "round"]}>
-                            Secondary action
+                            Toast test
                         </Button>
                         {menuHelper({
                             menuData: [
                                 {
-                                    content: "dropdown 2 :D"
+                                    content: "Basic toast",
+                                    onClick: () => {
+                                        addToast({
+                                            text: "Basic toast"
+                                        })
+                                    }
                                 },
                                 {
-                                    content: "Home",
-                                    icon: "home"
+                                    content: "Toast with icon",
+                                    onClick: () => {
+                                        addToast({
+                                            text: "wow a icon",
+                                            icon: "home"
+                                        })
+                                    }
                                 },
-                                divider,
                                 {
-                                    content: "subMenu",
-                                    subMenu: [
-                                        {
-                                            content: "wow"
-                                        },
-                                        {
-                                            content: "cool"
-                                        },
-                                        {
-                                            content: "this is selected",
-                                            selected: true
-                                        }
-                                    ]
+                                    content: "EVIL toast",
+                                    onClick: () => {
+                                        addToast({
+                                            text: "HELP",
+                                            type: "error"
+                                        })
+                                    }
                                 }
                             ],
-                            docked: true
+                            docked: false,
+                            noWrap: true
                         })}
                     </div>
+                </div>
+                <div className="space"></div>
+                <div>
                     <SplitButton icon="more_horiz" size="medium"
                         menu={menuHelper({
                             menuData: [
