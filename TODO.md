@@ -1,11 +1,16 @@
 Nee dit is geen ai, ik heb gwn geen zin om gh issues te maken.
 
 -[] Cards verbeteren (foto's enzo)
--[] diverse grotes 
+-[] diverse grotes van dingen
+-[] Dialogs verbeteren
 
 components:
 -[] Badge
 -[x] Button
+- - [] FAB
+- - - [x] FAB
+- - - [x] extended FAB
+- - - [] FAB menu
 -[x] Card
 -[] Checkbox
 -[] Chip
@@ -22,6 +27,10 @@ components:
 -[] Media
 -[] Menu
 -[] Navigation
+- - [x] navigation rows
+- - [x] navigation bar
+- - [x] navigation rail
+- - [] navigation tabs
 -[] Overlay
 -[] Page
 -[] Progress
