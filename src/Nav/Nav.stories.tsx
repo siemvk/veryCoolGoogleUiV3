@@ -1,14 +1,18 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Nav, type NavProps } from "./Nav";
-import { Button } from "../Button/Button";
-import { sb_pos } from "../types";
 
 const meta: Meta<typeof Nav> = {
     title: "M3/Nav",
     component: Nav,
     tags: ["autodocs"],
     argTypes: {
-        pos: sb_pos
+        pos: {
+            control: "select",
+            options: [
+                "left", "right", "top", "bottom", "tabs"
+            ],
+            description: 'waar'
+        }
     },
 };
 

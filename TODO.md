@@ -28,11 +28,11 @@ components:
 - [] Main layout
 - [] Media
 - [] Menu
-- [] Navigation
+- [x] Navigation
 - - [x] navigation rows
 - - [x] navigation bar
 - - [x] navigation rail
-- - [] navigation tabs
+- - [x] navigation tabs
 - [] Overlay
 - [] Page <-- niet???
 - [] Progress

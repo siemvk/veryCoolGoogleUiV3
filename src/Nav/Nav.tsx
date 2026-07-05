@@ -5,7 +5,7 @@ import Tooltip, { TooltipProps } from "../helpers/tooltip";
 
 export interface NavProps extends ButtonHTMLAttributes<HTMLElement> {
     InitialMenuOpen?: boolean,
-    pos?: pos,
+    pos?: pos | "tabs",
     allowSizeChange?: boolean
     selectedId?: string,
     bigButton?: navItem,
@@ -39,7 +39,8 @@ export const Nav = ({
         pos = "left"
     }
     const [menuOpen, setMenuOpen] = useState(InitialMenuOpen)
-    const isRail = pos == "left" || pos == "right"
+    const isRail = pos == "left" || pos == "right";
+    const isTabs = pos == "tabs"
     const [selected, setSelected] = useState(initialSelected || "ahfihweifhaihfiweifhiaw")
     useMemo(() => {
         if (!isRail) {
@@ -48,7 +49,7 @@ export const Nav = ({
     }, [isRail])
 
     return <>
-        <nav className={`${isRail ? "m l" : (!dontHideOnBottomBigScreen ? "s" : "")}  ${pos} scroll ${menuOpen ? "max" : ""}`} {...props}>
+        <nav className={`${isRail ? "m l" : ((!dontHideOnBottomBigScreen && !isTabs) ? "s" : "")}  ${pos} scroll ${menuOpen ? "max" : ""} ${isTabs && "tabbed"}`} {...props}>
             {isRail &&
                 <header>
                     {allowSizeChange &&
@@ -68,7 +69,7 @@ export const Nav = ({
                 </header>
             }
 
-            {(!isRail && bigButton) && <button className="extend square round" onClick={() => { if (autoUpdateSelected) { setSelected(bigButton.id) } bigButton.onClick(bigButton) }}>
+            {(!isRail && bigButton && !isTabs) && <button className="extend square round" onClick={() => { if (autoUpdateSelected) { setSelected(bigButton.id) } bigButton.onClick(bigButton) }}>
                 <i>{bigButton.icon}</i>
                 <span>{bigButton.text}</span>
             </button>}
