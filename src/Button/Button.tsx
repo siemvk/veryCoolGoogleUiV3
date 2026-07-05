@@ -7,7 +7,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: string,
   size?: size,
   FAB?: boolean,
-  forms?: ("border" | "circle" | "square" | "round" | "no-round" | "left-round" | "right-round" | "top-round" | "bottom-round" | "responsive" | "extend" | "transparent" | "link")[],
+  forms?: ("border" | "circle" | "square" | "round" | "no-round" | "left-round" | "right-round" | "top-round" | "bottom-round" | "responsive" | "extend" | "transparent" | "link" | "chip" | "active")[],
   responsive?: boolean,
   extendedFAB?: boolean,
   buttonTooltip?: React.ReactElement<TooltipProps, typeof Tooltip>;

@@ -29,7 +29,7 @@ const meta: Meta = {
         forms: {
             control: "multi-select",
             description: "de form van de knop",
-            options: ["border", "circle", "square", "round", "no-round", "left-round", "right-round", "top-round", "bottom-round", "responsive", "extend"]
+            options: ["border", "circle", "square", "round", "no-round", "left-round", "right-round", "top-round", "bottom-round", "responsive", "extend", "chip", "vertical", "active"]
         },
         extendedFAB: {
             control: "boolean",

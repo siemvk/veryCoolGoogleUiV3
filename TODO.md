@@ -14,7 +14,7 @@ components:
 - - - [] FAB menu
 - [x] Card
 - [x] Checkbox
-- [] Chip
+- [x] Chip (via button)
 - [] Container
 - [x] Dialog
 - [x] Divider
