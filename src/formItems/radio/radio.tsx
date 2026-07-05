@@ -3,7 +3,10 @@ import { size } from "../../types";
 
 
 export interface RadioProps extends React.HTMLAttributes<HTMLInputElement> {
-    size?: size
+    size?: size,
+    name?: string,
+    value?: string,
+    checked?: boolean
 }
 
 

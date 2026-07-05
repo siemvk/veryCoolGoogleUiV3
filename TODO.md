@@ -27,7 +27,7 @@ components:
 - [] List
 - [] Main layout
 - [] Media
-- [] Menu
+- [x] Menu
 - [x] Navigation
 - - [x] navigation rows
 - - [x] navigation bar

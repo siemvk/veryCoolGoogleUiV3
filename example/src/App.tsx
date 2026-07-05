@@ -1,16 +1,21 @@
-import { ReactElement, useState } from "react";
+import { ReactElement, useEffect, useMemo, useState } from "react";
 import Testing from "./testing";
 import AutoNavRail from "../../src/helpers/smartNavRail";
 import { Nav, navItem } from "../../src";
 import ButtonBuilder from "./ButtonBuilder";
 
-const pages: Record<string, () => React.JSX.Element> = {
-    "testing": Testing,
-    "btns": ButtonBuilder
-}
+const pages: ({ p: () => React.JSX.Element, i: string })[] = [
+    { p: Testing, i: "testing" },
+    { p: ButtonBuilder, i: "btns" }
+]
 
 export default function App() {
     const helper = (v: navItem) => {
+        // (document.getElementById(pageId) || document.getElementById("404"))!.style = "display: none";
+        // setPageId(v.id);
+        (document.getElementById(pageId) || document.getElementById("404"))!.style = "display: none";
+        console.log((document.getElementById(v.id) || document.getElementById("404")));
+        (document.getElementById(v.id) || document.getElementById("404"))!.style = "";
         setPageId(v.id)
     }
     const big = {
@@ -38,7 +43,7 @@ export default function App() {
             onClick: helper
         }
     ]
-    const [pageId, setPageId] = useState("home")
+    const [pageId, setPageId] = useState("")
     return <AutoNavRail navConfig={{
         pos: "left",
         InitialMenuOpen: true,
@@ -47,9 +52,10 @@ export default function App() {
         bigButton: big,
         autoUpdateSelected: true
     }}>
-        {pages[pageId] == undefined ? <main>
-            <h1 className="align-center">404</h1>
-        </main> : pages[pageId]()}
+        {pages.map((v) => {
+            return <main key={v.i} id={v.i} className="responsive" style={{ display: "none" }}> {v.p()}</main>
+        })}
+        <div style={{ display: "none" }} id="404"><h1>404</h1></div>
         <Nav pos="bottom" initialSelected="start" items={mainOptions} bigButton={big} autoUpdateSelected={true}></Nav>
     </AutoNavRail>
 }
