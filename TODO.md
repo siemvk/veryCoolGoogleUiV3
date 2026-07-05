@@ -35,7 +35,7 @@ components:
 - - [x] navigation tabs
 - [] Overlay
 - [] Page <-- niet???
-- [] Progress
+- [x] Progress
 - [x] Radio
 - [x] Select
 - [] Shape
