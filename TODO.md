@@ -5,43 +5,45 @@ Nee dit is geen ai, ik heb gwn geen zin om gh issues te maken.
 -[] Dialogs verbeteren
 
 components:
--[] Badge
--[x] Button
+- [] Badge
+- [] Button
+- - [x] base 
 - - [] FAB
 - - - [x] FAB
 - - - [x] extended FAB
 - - - [] FAB menu
--[x] Card
--[] Checkbox
--[] Chip
--[] Container
--[x] Dialog
--[x] Divider
--[] Expansion
--[] Grid <- hoe????
--[x] Icon
--[] Input
--[] Layout
--[] List
--[] Main layout
--[] Media
--[] Menu
--[] Navigation
+- [x] Card
+- [x] Checkbox
+- [] Chip
+- [] Container
+- [x] Dialog
+- [x] Divider
+- [] Expansion
+- [x] Fieldsets
+- [] Grid <-- hoe????
+- [x] Icon
+- [] Input
+- [] Layout
+- [] List
+- [] Main layout
+- [] Media
+- [] Menu
+- [] Navigation
 - - [x] navigation rows
 - - [x] navigation bar
 - - [x] navigation rail
 - - [] navigation tabs
--[] Overlay
--[] Page
--[] Progress
--[] Radio
--[] Select
--[] Shape
--[] Slider
--[x] Snackbar (als toast)
--[] Summary
--[] Switch
--[] Table
--[] Tabs
--[] Textarea
--[x] Tooltip
+- [] Overlay
+- [] Page <-- niet???
+- [] Progress
+- [x] Radio
+- [x] Select
+- [] Shape
+- [x] Slider
+- [x] Snackbar (als toast)
+- [] Summary
+- [x] Switch
+- [] Table
+- [] Tabs
+- [] Textarea
+- [x] Tooltip

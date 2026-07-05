@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { SplitButton } from "./ButtonSplit";
-import { sb_size_preset } from "../types";
+import { sb_size } from "../types";
 
 const meta: Meta = {
     title: "M3/SplitButton",
@@ -16,7 +16,7 @@ const meta: Meta = {
             control: 'text',
             description: "The text of the button or the children"
         },
-        size: sb_size_preset,
+        size: sb_size,
         responsive: {
             control: "boolean",
             description: "Moet dit responsive zijn"

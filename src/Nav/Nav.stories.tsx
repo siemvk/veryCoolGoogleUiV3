@@ -36,9 +36,9 @@ export const Filled: Story = {
             }
         }],
         bigButton: {
-            id: "home",
-            icon: "home",
-            text: "Home",
+            id: "start",
+            icon: "code",
+            text: "Start here",
             onClick: () => {
                 alert("hai")
             }

@@ -11,7 +11,7 @@ export type menuHelperProps = {
     positions?: pos
 };
 
-const menuHelper = ({
+export const menuHelper = ({
     fullscreen,
     docked,
     menuData,
@@ -58,7 +58,7 @@ export const divider: menuItem = {
 export default menuHelper;
 
 
-type menuItem = {
+export type menuItem = {
     content: string | any,
     icon?: string,
     selected?: boolean,

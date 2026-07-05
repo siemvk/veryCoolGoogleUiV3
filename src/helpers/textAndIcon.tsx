@@ -1,14 +1,14 @@
 import React from "react";
 
-export interface textIconProps extends React.HTMLAttributes<HTMLElement> {
+export interface TextIconProps extends React.HTMLAttributes<HTMLElement> {
     icon?: string;
 }
 
-const TextAndIcon = ({
+export const TextAndIcon = ({
     icon,
     children,
     ...props
-}: textIconProps) => {
+}: TextIconProps) => {
     if (icon) {
         return <>
             <i>

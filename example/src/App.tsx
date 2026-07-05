@@ -1,138 +1,55 @@
-import { Button, SplitButton, useDialog } from "../../src";
-import { useToast } from "../../src";
-import { Card } from "../../src/card/card";
-import menuHelper, { divider } from "../../src/helpers/menu";
-import Tooltip from "../../src/helpers/tooltip";
+import { ReactElement, useState } from "react";
+import Testing from "./testing";
+import AutoNavRail from "../../src/helpers/smartNavRail";
+import { Nav, navItem } from "../../src";
+import ButtonBuilder from "./ButtonBuilder";
 
+const pages: Record<string, () => React.JSX.Element> = {
+    "testing": Testing,
+    "btns": ButtonBuilder
+}
 
 export default function App() {
-    const { addToast } = useToast();
-    const { pushDialog } = useDialog();
-    const highlights = [
+    const helper = (v: navItem) => {
+        setPageId(v.id)
+    }
+    const big = {
+        id: "start",
+        icon: "code",
+        text: "Start here",
+        onClick: helper
+    }
+    const mainOptions = [
         {
-            title: "Dialog test",
-            detail: <>Druk op de knop voor een test dialog.<br /> de rode is voor errors btw.</>,
-            button: < Button icon="bolt" forms={["round"]} onClick={() => {
-                pushDialog({
-                    title: "Het werkt :D",
-                    content: "content hier",
-                })
-            }}>
-                Dialog test
-            </Button >
+            id: "btns",
+            icon: "widgets",
+            text: "Buttons",
+            onClick: helper
+        }, {
+            id: "dialogs",
+            icon: "chat_bubble",
+            text: "dialogs and toasts",
+            onClick: helper
         },
         {
-            title: "Toast test",
-            detail: <>Toon een toast, teminsten ik denk dat het zo heet??? <br />Ook een test voor menus in de zelfde div als button</>,
-            button: <div>
-                <Button icon="visibility" forms={["border", "round"]}>
-                    Toast test
-                </Button>
-                {menuHelper({
-                    menuData: [
-                        {
-                            content: "Basic toast",
-                            onClick: () => {
-                                addToast({
-                                    text: "Basic toast"
-                                })
-                            }
-                        },
-                        {
-                            content: "Toast with icon",
-                            onClick: () => {
-                                addToast({
-                                    text: "wow a icon",
-                                    icon: "home"
-                                })
-                            }
-                        },
-                        {
-                            content: "EVIL toast",
-                            onClick: () => {
-                                addToast({
-                                    text: "HELP",
-                                    type: "error"
-                                })
-                            }
-                        },
-                        {
-                            content: "Toast with button",
-                            onClick: () => {
-                                addToast({
-                                    text: "hi",
-                                    action: {
-                                        label: "Button",
-                                        onClick: () => {
-                                            pushDialog({
-                                                title: "Het werkt :D",
-                                                content: "content hier",
-                                            })
-                                        }
-                                    }
-                                })
-                            }
-                        },
-                    ],
-                    docked: false,
-                    noWrap: true
-                })}
-            </div>
-        },
-        {
-            detail: <>Hover over de knop om hopelijk <br /> de tooltip te zien</>,
-            title: "Tooltip test",
-            button: <Button buttonTooltip={<Tooltip rich={false}>wow het werk</Tooltip>}>Hover</Button>
-
-        },
-        {
-            title: "Dropdown test",
-            detail: <>Druk op de meer opties knop van de SplitButton. <br /> Ook een test voor de Splitbutton</>,
-            button: <SplitButton icon="more_horiz" size="medium"
-                menu={menuHelper({
-                    menuData: [
-                        {
-                            content: "hai"
-                        },
-                        {
-                            content: "item 2",
-                            icon: "home"
-                        },
-                        divider,
-                        {
-                            content: "subMenu",
-                            subMenu: [
-                                {
-                                    content: "hoi"
-                                },
-                                {
-                                    content: "wow"
-                                },
-                                {
-                                    content: "selected",
-                                    selected: true
-                                }
-                            ]
-                        }
-                    ],
-                    positions: 'left',
-                    noWrap: true
-                })}>
-                Split action
-            </SplitButton>
-        },
-    ];
-    return (
-        <main>
-            <div className="grid">
-                {highlights.map((item) => (
-                    <div className="s4">
-                        <Card title={item.title} buttons={[item.button]}>
-                            {item.detail}
-                        </Card>
-                    </div>
-                ))}
-            </div>
-        </main>
-    );
+            id: "testing",
+            icon: "experiment",
+            text: "Tests",
+            onClick: helper
+        }
+    ]
+    const [pageId, setPageId] = useState("home")
+    return <AutoNavRail navConfig={{
+        pos: "left",
+        InitialMenuOpen: true,
+        initialSelected: "start",
+        items: mainOptions,
+        bigButton: big,
+        autoUpdateSelected: true
+    }}>
+        {pages[pageId] == undefined ? <main>
+            <h1 className="align-center">404</h1>
+        </main> : pages[pageId]()}
+        <Nav pos="bottom" initialSelected="start" items={mainOptions} bigButton={big} autoUpdateSelected={true}></Nav>
+    </AutoNavRail>
 }

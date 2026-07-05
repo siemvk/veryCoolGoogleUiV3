@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "./Button";
-import { sb_size_preset } from "../types";
+import { sb_size } from "../types";
 import Tooltip from "../helpers/tooltip";
 
 const meta: Meta = {
@@ -17,7 +17,7 @@ const meta: Meta = {
             control: 'text',
             description: "The text of the button or the children"
         },
-        size: sb_size_preset,
+        size: sb_size,
         FAB: {
             control: "boolean",
             description: "Moet dit een FAB zijn"

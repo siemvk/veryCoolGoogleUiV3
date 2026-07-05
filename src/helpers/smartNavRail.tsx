@@ -2,15 +2,15 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Nav, NavProps } from "../Nav/Nav";
 
 
-export interface autoNavRailProps extends React.HTMLAttributes<HTMLElement> {
+export interface AutoNavRailProps extends React.HTMLAttributes<HTMLElement> {
     navConfig: NavProps
 }
 
 
-const AutoNavRail = ({
+export const AutoNavRail = ({
     navConfig,
     children,
-}: autoNavRailProps) => {
+}: AutoNavRailProps) => {
     const [isLeftOrOther, setIsLeftOrOther] = useState(navConfig.pos !== "right");
     useMemo(() => {
         setIsLeftOrOther(navConfig.pos !== "right")

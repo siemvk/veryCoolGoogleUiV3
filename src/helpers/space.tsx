@@ -1,15 +1,15 @@
 import React from "react";
 
 
-export interface spaceProps extends React.HTMLAttributes<HTMLElement> {
+export interface SpaceProps extends React.HTMLAttributes<HTMLElement> {
     size?: "space" | "medium-space" | "large-space"
 }
 
 
-const Space = ({
+export const Space = ({
     size,
     ...props
-}: spaceProps) => {
+}: SpaceProps) => {
     return <div className={size || "space"} {...props}>
 
     </div>

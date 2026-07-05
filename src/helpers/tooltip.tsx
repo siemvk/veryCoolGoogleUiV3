@@ -8,7 +8,7 @@ export interface TooltipProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 
-const Tooltip = ({
+export const Tooltip = ({
     children,
     rich,
     pos,

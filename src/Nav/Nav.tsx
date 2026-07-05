@@ -60,7 +60,7 @@ export const Nav = ({
                     }
                     {bigButton &&
 
-                        <button className="extend square round" onClick={(e) => { if (autoUpdateSelected) { setSelected(bigButton.id) } bigButton.onClick(e) }}>
+                        <button className="extend square round" onClick={() => { if (autoUpdateSelected) { setSelected(bigButton.id) } bigButton.onClick(bigButton) }}>
                             <i>{bigButton.icon}</i>
                             <span>{bigButton.text}</span>
                         </button>
@@ -68,12 +68,12 @@ export const Nav = ({
                 </header>
             }
 
-            {(!isRail && bigButton) && <button className="extend square round" onClick={bigButton.onClick}>
+            {(!isRail && bigButton) && <button className="extend square round" onClick={() => { if (autoUpdateSelected) { setSelected(bigButton.id) } bigButton.onClick(bigButton) }}>
                 <i>{bigButton.icon}</i>
                 <span>{bigButton.text}</span>
             </button>}
             {items.map((v) => {
-                return <a onClick={(e) => { if (autoUpdateSelected) { setSelected(v.id) } v.onClick(e) }} className={selected == v.id ? "active" : ""}>
+                return <a onClick={() => { if (autoUpdateSelected) { setSelected(v.id) } v.onClick(v) }} className={selected == v.id ? "active" : ""}>
                     <i>{v.icon}</i>
                     <div>{v.text}</div>
                 </a>
@@ -82,9 +82,9 @@ export const Nav = ({
     </>
 };
 
-type navItem = {
+export type navItem = {
     icon: string,
     text: string,
-    onClick: React.MouseEventHandler<HTMLElement>,
+    onClick: (arg0: navItem) => any,
     id: string
 }
